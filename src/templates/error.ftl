@@ -5,8 +5,6 @@
   <title>Title</title>
 </head>
 <body>
-<#include "./css.ftl"/>
-<#include "./content.ftl"/>
-<#include "./script.ftl"/>
+<p>찾으시는 페이지가 없습니다.<a href="/">처음으로</a></p>
 </body>
 </html>

@@ -5,8 +5,6 @@
   <title>Title</title>
 </head>
 <body>
-<#include "./css.ftl"/>
-<#include "./content.ftl"/>
-<#include "./script.ftl"/>
+  <p>안뇽 !! 알아서 잘 합니다.... 핥핥핥핥핥핥</p>
 </body>
 </html>

@@ -1,38 +1,25 @@
-const express = require('express');
-const path = require('path');
-const SRC_ENTRY_PATH = path.join(__dirname, '..');
-const router = express.Router();
+const express    = require('express');
+const path       = require('path');
+const router     = express.Router();
 const Freemarker = require('freemarker.js');
-const fm = new Freemarker({
-  viewRoot: path.join(SRC_ENTRY_PATH, 'templates'),
-  options: {}
+const fm         = new Freemarker({
+  viewRoot: path.join(__dirname, '..', '/templates'),
+  options : {}
 });
-
-const compileFromFM = (req, res, next) => {
-  fm.render('/mo/promo/hotstar/index.ftl', {title: 'freemarker'}, (err, result, errout) => {
-    if (err) {
-      res.send(err);
-    }
-    req.compiledHTML = result;
-    next()
-  });
-};
-
-router.get('/mo/:category/', compileFromFM, (req, res, next) => {
-  res.send(req.compiledHTML);
-});
-
-router.get('/pc/:category/', (req, res, next) => {
-  fm.render('/mo/promo/hotstar/index.ftl', {title: 'freemarker'}, (err, result, errout) => {
+router.get('/', (req, res, next) => {
+  fm.render('index.ftl', {}, (err, result, errout) => {
     res.send(err || result);
-  });
+  })
 });
-
-router.post(
-  'login/users/:userid',
-  DB.connectDB,
-  Auth.authenticate,
-  renderLoginSuccessPage
+router.get('/pc/:category/', (req, res, next) => {
+    fm.render('error.ftl', {}, (err, result, errout) => {
+      res.send(err || result);
+    });
+  }
 );
-
+router.get('/mo/:id/', (req, res, next) => {
+  fm.render(path.join('/mo/promo/', req.params.id, '/index.ftl'), {title: req.params.id}, (err, result, errout) => {
+      res.send(err || result);
+    });
+});
 module.exports = router;
