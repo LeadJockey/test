@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    ul{overflow:hidden}
+    li{float:left;margin-left:10px;width:30px;background-color:yellow;list-style:none}
+</style>
+<ul id="target"></ul>
+<script type="text/javascript">
+	'use strict';
+	const targetElem    = document.getElementById('target');
+	const getRandomList = function (cnt) {
+		const list    = [];
+		const item    = {
+			name : 'a',
+			price: 30,
+			size : 4
+		};
+		const item2   = {
+			name : 'b',
+			price: 40,
+			size : 2
+		};
+		const item3   = {
+			name : 'c',
+			price: 50,
+			size : 1
+		};
+		const tmpList = [item, item2, item3];
+		let i         = 0;
+		while (i < cnt) {
+			const random = Math.round(Math.random() * (3 - 1));
+			// list.push(tmpList[random]);
+			list.push(random);
+			i++;
+		}
+		return list;
+	};
+
+	const randomList = getRandomList(10);
+	console.log(`random : -----`, randomList);
+	const orderList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	// const copiedList = rootList.map((e) => e);
+	let cnt         = 0;
+
+	// bubble sort
+	// 1. loop ->
+	// 2. loop <-
+	// 3. compare current : next
+	// 4. swap
+
+	function drawGraph(list) {
+		let html = ``;
+		list.forEach(function (e, i) {
+			const cnt = 50 + 15 * e;
+			html += `<li style="height:${cnt}px;">${e}</li>`
+		});
+		targetElem.innerHTML = html;
+	}
+
+	function _swap(list, idx) {
+		let current   = list[idx];
+		let next      = list[idx + 1];
+		let tmp       = current;
+		list[idx]     = next;
+		list[idx + 1] = tmp;
+		console.log(list);
+        // drawGraph(list);
+		return list;
+	}
+
+	function _compare(list, idx) {
+		return list[idx] > list[idx + 1];
+	}
+
+
+	function bubbleSort(list) {
+		const length = list.length;
+		for (let i = 0; i < length; i++) {
+			for (let j = 0; j < (length - i - 1); j++) {
+				cnt++;
+				console.log(`cnt-${cnt}- i[${i}] : j[${j}]`);
+				if (_compare(list, j)) {
+					_swap(list, j);
+
+
+				}
+			}
+		}
+		return list;
+	}
+
+	console.log(bubbleSort(randomList));
+</script>
+</body>
+</html>
