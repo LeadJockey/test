@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>builder</title>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+            crossorigin="anonymous"></script>
+    <style>
+        *{margin:0;padding:0}
+    </style>
+</head>
+<body>
+<div>
+
+</div>
+<script>
+	var i = 1, cnt = 10, j, list;
+	while(i < cnt){
+		list = [];
+		j = 0;
+		while(j < i){
+			list.push('ㅎ');
+			j++;
+		}
+		console.log(list.join(' '));
+		i++;
+	}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name" : "SGR",
+  "entry" : {
+    "sports-SGR" : "index.js"
+  },
+  "tenth_directory" : {
+    "test" : "sports/dev",
+    "service" : "sports"
+  },
+  "url" : "/sports-SGR",
+  "template" : {
+    "dom_selector" : "#sgrColl",
+    "host" : {
+      "test" : "https://test.search.daum.net",
+      "service" : "https://daum.net"
+    },
+    "scripts" : [
+      "sports-SGR.bundle.js"
+    ],
+    "params" : {
+      "q" : "LG트윈스",
+      "w" : "tot",
+      "rtmaxcoll": "SGR"
+    },
+    "static" : {
+      "basic" : "static/teamGraph.html",
+      "test":"static/worldcup.html"
+    }
+  }
+}

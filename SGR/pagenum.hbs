@@ -1,0 +1,15 @@
+<span class="paging_inner">
+  <{{:p === 1 ? 'span' : 'a href="javascript:;"'}} class="btn_page btn_prev">
+    <span class="ico_comm1 btn_page btn_prev"><em>이전</em></span>
+  </{{:p === 1 ? 'span' : 'a'}}>
+
+  {{for numberItems}}
+  {{if isCurrentPage}}
+  <span class="screen_out">현재페이지</span>
+  {{/if}}
+  <{{:isCurrentPage ? 'em' : 'a href="javascript:;"'}} data-p="{{:dataP}}" class="btn_page">{{:dataP}}</{{:isCurrentPage ? 'em' : 'a'}}>
+  {{/for}}
+  <{{:p === numberItems.length ? 'span' : 'a href="javascript:;"'}} class="btn_page btn_next">
+    <span class="ico_comm1 btn_page btn_next"><em>다음</em></span>
+  </{{:p === numberItems.length ? 'span': 'a'}}>
+</span>
